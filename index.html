@@ -1,11 +1,18 @@
 <script>
 const queryString = window.location.search;
 alert(queryString);
+const codeParam = new URLSearchParams(queryString).get('code');
+const local_ipParam = new URLSearchParams(queryString).get('local_ip');
  
-initial='https://api.sonos.com/login/v3/oauth?client_id=cfa868fd-70b9-48d7-a2f2-5dab0b2b3415&response_type=code&state=testState&scope=playback-control-all&redirect_uri=https%3A%2F%2Fp4blojf.github.io%2Fp-controller%2Findex.html';
-
-window.location.href = initial + queryString;
- 
+if(codeParam){
+ if(local_ipParam){
+   window.location.href = 'http://' +local_ipParam + '/?'+ queryString; 
+ }
+ alert(local_ipParam);
+} else {
+  initial='https://api.sonos.com/login/v3/oauth?client_id=cfa868fd-70b9-48d7-a2f2-5dab0b2b3415&response_type=code&state=testState&scope=playback-control-all&redirect_uri=https%3A%2F%2Fp4blojf.github.io%2Fp-controller%2Findex.html';
+  window.location.href = initial + queryString;
+}
 </script>
 <head>
  <a href="https://p4blojf.github.io/p-controller/">https://p4blojf.github.io/p-controller</a>
