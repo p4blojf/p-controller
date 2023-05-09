@@ -6,7 +6,7 @@ const local_ipParam = new URLSearchParams(queryString).get('local_ip');
  
 if(codeParam){
  if(local_ipParam){
-   window.location.href = 'http://' +local_ipParam + '/?'+ queryString; 
+   window.location.href = 'http://' +local_ipParam + '/?'+ queryString+ '&redirect_uri=https%3A%2F%2Fp4blojf.github.io%2Fp-controller%2Findex.html%3Flocal_ip%3D'+local_ipParam; 
  }
  alert(local_ipParam);
 } else {
